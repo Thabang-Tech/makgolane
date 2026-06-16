@@ -15,9 +15,8 @@ body {
 }
 
 /* =========================
-   HEADER (GLASS + TRANSPARENT)
+   HEADER
 ========================= */
-/* FIXED GLASS HEADER */
 .header {
   position: fixed;
   top: 0;
@@ -28,7 +27,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* glass effect */
 .header.transparent {
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
@@ -43,14 +41,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav {
   flex-wrap: wrap;
   gap: 10px;
-} 
+}
 
-/* logo */
 .logo img {
   width: 100px;
   height: auto;
@@ -61,20 +55,15 @@ body {
 .nav-links a {
   margin-left: 20px;
   text-decoration: none;
-  color: #4169E1; /* Royal Blue */
+  color: #4169E1;
   font-size: 14px;
   font-weight: 600;
+  position: relative;
   transition: 0.3s ease;
 }
 
-/* hover effect */
 .nav-links a:hover {
-  color: #274bb5;
-  text-decoration: underline;
-}
-
-.nav-links a {
-  position: relative;
+  color: #ffbd59;
 }
 
 .nav-links a::after {
@@ -84,7 +73,7 @@ body {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: #4169E1;
+  background: #004aad;
   transition: 0.3s;
 }
 
@@ -93,79 +82,98 @@ body {
 }
 
 /* =========================
-   HERO SECTION
+   HERO
 ========================= */
 .hero {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 40px;
-  padding: 120px 40px 60px; /* pushes content below fixed header */
-  background: #f6f7fb;
+  padding: 120px 20px;
+  overflow: hidden;
+  color: white;
 }
 
-.hero-text {
-  flex: 1;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("Images/Makgolane INC.png") center/cover no-repeat;
+  filter: blur(2.5px);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-text h1 {
-  font-size: 40px;
+  font-size: 42px;
   margin-bottom: 15px;
 }
 
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-image img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
+.hero-text p {
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* =========================
-   ABOUT SECTION
+   ABOUT
 ========================= */
 .about {
   padding: 60px 40px;
   text-align: center;
 }
 
+.about {
+    background-color: #E5E5E5;
+}
+/*#FAFAFA
+#F2F2F2
+#E5E5E5
+#1C1C1C
+#8A8A8A*/
+
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
-  margin-top: 20px;
-  list-style: none;
-  padding: 0;
-}
-
-.services {
-  background: #4169E1;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: left;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.services :hover {
-  background: #e9eefc;
-  transform: translateY(-3px);
 }
 
 .services div {
   background: #f6f7fb;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.services div:hover {
+  background: #e9eefc;
+  transform: translateY(-3px);
 }
 
 /* =========================
-   CONTACT SECTION (MODERN GRID)
+   CONTACT
 ========================= */
 .contact {
   padding: 80px 40px;
@@ -189,7 +197,6 @@ body {
   margin: auto;
 }
 
-/* info side */
 .contact-info {
   flex: 1;
 }
@@ -201,7 +208,6 @@ body {
   border-radius: 10px;
 }
 
-/* form side */
 .contact-form {
   flex: 1;
   background: #fff;
@@ -227,8 +233,8 @@ body {
 .contact-form button {
   width: 100%;
   padding: 12px;
-  background: #0f172a;
-  color: #fff;
+  background: #004aad;
+  color: #ffbd59;
   border: none;
   cursor: pointer;
   border-radius: 6px;
@@ -236,15 +242,24 @@ body {
 }
 
 .contact-form button:hover {
-  background: #1e293b;
+  background: #4169E1;
 }
 
 .contact-form label {
-  font-size: 14px;
   display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+/* checkbox sizing fix */
+.contact-form input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 /* =========================
@@ -257,27 +272,39 @@ body {
   border-top: 1px solid #eee;
 }
 
+/* FLOATING BUTTON */
+.floating-contact {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #004aad;
+  color: #ffbd59;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+
+.floating-contact:hover {
+  background: #4169E1;
+  transform: translateY(-3px);
+}
+
 /* =========================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 120px 20px 40px;
-  }
-
-  .contact-grid {
-    flex-direction: column;
-  }
-
-  .services {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   .nav-links a {
     margin-left: 10px;
     font-size: 13px;
+  }
+
+  .contact-grid {
+    flex-direction: column;
   }
 }
